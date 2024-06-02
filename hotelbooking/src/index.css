@@ -1,0 +1,25 @@
+.registerpage{
+    padding: 20px 50px;
+}
+.login{
+    padding: 20px 50px;
+}
+#card{
+    padding-top: 50px;
+}
+
+.book{
+    padding-top: 80px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+}
+.book1{
+    display: flex;
+    justify-content: center; 
+}
+
+#detail{
+    padding-top: 80px;
+    padding-left: 50px;
+}
