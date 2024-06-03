@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ClipLoader from "react-spinners/ClipLoader";
 
 function Booking() {
   const navigate = useNavigate();
@@ -18,12 +17,10 @@ function Booking() {
   const hotel = datas.find((data) => data._id === _id);
   const [checkin, setCheckin] = useState(null);
   const [checkout, setCheckout] = useState(null);
-  const [loading, setLoading] = useState(false);  
 
   async function check() {
     console.log(_id, checkin, checkout);
 
-    setLoading(true);  
     try {
       const response = await axios.post(
         `http://localhost:8000/bookings/room/${_id}`,
@@ -34,11 +31,11 @@ function Booking() {
       );
 
       console.log(response.data);
-      navigate(`/createOrder`);
+
+      navigate(`/booked`);
     } catch (err) {
       console.log(err);
     } finally {
-      setLoading(false);  
     }
   }
 
@@ -49,13 +46,21 @@ function Booking() {
   return (
     <>
       <div className="nav">
-      <Navbar bg="primary" expand="lg"  style={{ height: "auto", width: "100%" }}>
+        <Navbar
+          bg="primary"
+          expand="lg"
+          style={{ height: "auto", width: "100%" }}
+        >
           <Container>
-            <Navbar.Brand href="/home" style={{color:"white"}}>Hotel Booking</Navbar.Brand>
+            <Navbar.Brand href="/home" style={{ color: "white" }}>
+              Hotel Booking
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
+                <Nav.Link href="/home" style={{ color: "white" }}>
+                  Home
+                </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -92,34 +97,26 @@ function Booking() {
         </Card>
       </div>
       <div className="book1">
-        <span>Check In</span>{" "}
-        <span>
+        <div>Check In</div>
+        <div>
           <input type="date" onChange={(e) => setCheckin(e.target.value)} />
-        </span>
+        </div>
         <br />
-        <span>Check Out</span>{" "}
-        <span>
+        <div>Check Out</div>
+        <div>
           <input type="date" onChange={(e) => setCheckout(e.target.value)} />
-        </span>
+        </div>
         <br />
         <div
           className="button"
           style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <Button variant="primary" onClick={check}>
-            Check Availability
-          </Button>
-        </div>
+        ></div>
       </div>
-
-      {/*{loading && (  
-        <div className="d-flex justify-content-center mt-4">
-          <ClipLoader size={50} color={"#123abc"} loading={loading} />
-        </div>
-      )}*/}
+      <div className="check">
+        <Button onClick={check} >Check Availability</Button>
+      </div>
     </>
   );
 }
 
 export default Booking;
-

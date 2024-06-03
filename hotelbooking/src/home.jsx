@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal';
 import axios from 'axios';
 
+
 function Home() {
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
@@ -70,7 +71,6 @@ function Home() {
   return (
     <>
       <div className="nav" > 
-        {/*<Navbar expand="lg" className="bg-body-tertiary"  data-bs-theme="dark" bg="primary" style={{ height: "auto", width: "100%" }}>*/}
         <Navbar bg="primary" expand="lg"  style={{ height: "auto", width: "100%" }}>
           <Container>
             <Navbar.Brand href="/home" style={{color:"white"}}>Hotel Booking</Navbar.Brand>
@@ -78,6 +78,7 @@ function Home() {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
+                <Nav.Link href="/login" style={{color:"white"}}>logout</Nav.Link>
               </Nav>
             </Navbar.Collapse>
             <Form inline>
@@ -126,7 +127,7 @@ function Home() {
             ))}
           </Row>
         ) : (
-          <div>Not found...!</div>
+          <div className="notfound">Not found..!</div>
         )}
 
         <Modal show={showComparison} onHide={() => setShowComparison(false)} size="lg">

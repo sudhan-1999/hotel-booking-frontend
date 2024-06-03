@@ -1,4 +1,3 @@
-import './App.css';
 import {Routes,Route,useLocation} from 'react-router-dom';
 import Register from './register';
 import Login from './login';
@@ -7,7 +6,7 @@ import Booking from './booking';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Booked from './booked';
-//import Search from './search';
+import Forgotpassword from './forgotpassword';
 
 
 function App() {
@@ -35,6 +34,10 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/book/:_id" element={<Booking />} />
           <Route path="/createOrder" element={<Booked />} />
+          <Route path="/forgotpassword" element={<Forgotpassword />} />
+          <Route path="/booked" element={<Booked />} />
+
+
 
         </Routes>
       </>

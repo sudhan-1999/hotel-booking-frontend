@@ -77,7 +77,7 @@ function Login() {
         Login
       </Button>
       <p>
-        <a onClick={() => navigate("/forgot-password")} style={{ cursor: "pointer" }}>Forgot Password?</a>
+        <a onClick={() => navigate("/forgotpassword")} style={{ cursor: "pointer" }}>Forgot Password?</a>
       </p>
       <p>
         Don't have an account?

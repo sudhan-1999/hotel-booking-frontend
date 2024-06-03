@@ -18,8 +18,18 @@
     display: flex;
     justify-content: center; 
 }
+.check{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
 
 #detail{
     padding-top: 80px;
     padding-left: 50px;
+}
+.notfound{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
 }

@@ -1,4 +1,4 @@
-import DatePicker from "react-bootstrap-date-picker";
+/*import DatePicker from "react-bootstrap-date-picker";
  
 var App = React.createClass({
   getInitialState: function(){
@@ -26,4 +26,4 @@ var App = React.createClass({
       <HelpBlock>Help</HelpBlock>
     </FormGroup>;
   }
-});
+});*/
