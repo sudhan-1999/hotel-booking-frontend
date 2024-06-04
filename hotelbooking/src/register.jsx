@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 //import register from './mongo';
-import axios from 'axios';
-import {  useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
-    const [Name, setName] = useState(null);
+  const [Name, setName] = useState(null);
   const [Email, setEmail] = useState(null);
   const [Password, setPassword] = useState(null);
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ function Register() {
   const handleFirstNameChange = (event) => {
     setName(event.target.value);
   };
-  
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -24,21 +23,22 @@ function Register() {
   };
   async function click(event) {
     event.preventDefault(); // Prevents default form submission behavior
-    await axios.post("http://localhost:8000/register",{Name, Email, Password})
-    .then((res)=>{
+    await axios
+      .post("http://localhost:8000/register", { Name, Email, Password })
+      .then((res) => {
         console.log(res);
         setName(null);
         setEmail(null);
         setPassword(null);
-        navigate("/login");})
-   
-    }
-      return (
-    <div className="registerpage" >
+        navigate("/login");
+      });
+  }
+  return (
+    <div className="registerpage">
       <form action="/action_page.php" class="was-validated">
         <div class="mb-3 mt-3">
           <label for="First Name" class="form-label">
-             Name:
+            Name:
           </label>
 
           <input
@@ -100,4 +100,4 @@ function Register() {
   );
 }
 
-export default Register
+export default Register;

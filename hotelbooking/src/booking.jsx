@@ -17,6 +17,7 @@ function Booking() {
   const hotel = datas.find((data) => data._id === _id);
   const [checkin, setCheckin] = useState(null);
   const [checkout, setCheckout] = useState(null);
+  const [book,setBook]=useState(false)
 
   async function check() {
     console.log(_id, checkin, checkout);
@@ -29,14 +30,17 @@ function Booking() {
           checkout,
         }
       );
+      console.log(response);
 
-      console.log(response.data);
+      
 
       navigate(`/booked`);
     } catch (err) {
-      console.log(err);
-    } finally {
-    }
+      console.log(err.message);
+      if(err.message=="Request failed with status code 400"){
+        setBook(true);
+      }
+    } 
   }
 
   if (!hotel) {
@@ -113,7 +117,8 @@ function Booking() {
         ></div>
       </div>
       <div className="check">
-        <Button onClick={check} >Check Availability</Button>
+        <Button onClick={check} >Reserve</Button>
+        {book && <p style={{color:"red"}}>Room Already Booked</p>}
       </div>
     </>
   );

@@ -111,8 +111,8 @@ function Home() {
           <Row>
             {displayHotels.map((hotel) => (
               <Col md={3} key={hotel._id} className="mb-4">
-                <Card  onClick={() => { navigate(`/book/` + hotel._id) }} style={{ cursor: 'pointer', border: selectedHotels.some(h => h._id === hotel._id) ? '2px solid green' : 'none' }}>
-                  <Card.Img variant="top" src={hotel.thumbnail} />
+                <Card   style={{ cursor: 'pointer', border: selectedHotels.some(h => h._id === hotel._id) ? '2px solid green' : 'none' }}>
+                  <Card.Img variant="top" src={hotel.thumbnail}  onClick={() => { navigate(`/book/` + hotel._id) }}/>
                   <Card.Body>
                     <Card.Title>{hotel.Name}</Card.Title>
                     <Button 
@@ -145,7 +145,6 @@ function Home() {
                         <Card.Title>{hotel.Name}</Card.Title>
                         <Card.Text>Location: {hotel.location}</Card.Text>
                         <Card.Text>Price: RS.{hotel.price}</Card.Text>
-                        <Card.Text>Rating: {hotel.rating}</Card.Text>
                         <Card.Text>
                           <strong>Amenities:</strong>
                           <ul>
