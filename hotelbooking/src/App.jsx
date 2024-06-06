@@ -3,7 +3,7 @@ import Register from './register';
 import Login from './login';
 import Home from './home';
 import Booking from './booking';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 import axios from 'axios';
 import Booked from './booked';
 import Forgotpassword from './forgotpassword';
