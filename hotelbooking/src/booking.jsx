@@ -23,8 +23,7 @@ function Booking() {
     console.log(_id, checkin, checkout);
 
     try {
-      const response = await axios.post(
-        `http://localhost:8000/bookings/room/${_id}`,
+      const response = await axios.post(`https://hotel-booking-backend-ngja.onrender.com/bookings/room/${_id}`,
         {
           checkin,
           checkout,

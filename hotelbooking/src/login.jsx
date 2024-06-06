@@ -3,19 +3,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import ReCAPTCHA from "react-google-recaptcha";
 
 function Login() {
   const navigate = useNavigate();
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [login, setLogin] = useState(true);
-  const [captcha, setCaptcha] = useState(null);
 
-  const handleCaptchaChange = (value) => {
-    setCaptcha(value);
-  };
-
+  
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -26,13 +21,9 @@ function Login() {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevents default form submission behavior
-    if (!captcha) {
-      setLogin(false);
-      return;
-    }
-
+    
     try {
-      const response = await axios.post("http://localhost:8000/login", { Email, Password, captcha });
+      const response = await axios.post("https://hotel-booking-backend-ngja.onrender.com/login", { Email, Password });
       if (response.data.message === "Login successful") {
         setEmail("");
         setPassword("");
@@ -68,11 +59,8 @@ function Login() {
           onChange={handlePasswordChange}
         />
       </Form.Group>
-      <ReCAPTCHA
-        sitekey ="6LdWJ-4pAAAAAN4dxXuoJHIgZpqDOdsF_9qxDi9S"
-        onChange={handleCaptchaChange}
-      />
-      {login ? "" : <p style={{ color: "red" }}>Wrong Credentials or Missing CAPTCHA!</p>}
+     
+      {login ? "" : <p style={{ color: "red" }}>Wrong Credentials </p>}
       <Button type="submit">
         Login
       </Button>

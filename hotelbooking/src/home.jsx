@@ -33,7 +33,7 @@ function Home() {
     async function searchHotels() {
       try {
         console.log(`Searching for hotels with search term: ${search}`);
-        const response = await axios.get(`http://localhost:8000/home/${search}`);
+        const response = await axios.get(`https://hotel-booking-backend-ngja.onrender.com/home/${search}`);
         setResults(response.data);
       } catch (err) {
         console.error('Error fetching hotels:', err);

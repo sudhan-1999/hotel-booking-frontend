@@ -14,7 +14,7 @@ function App() {
     useEffect(() => {
     async function hotel() {
       try{
-      await axios.get("http://localhost:8000/home")
+      await axios.get("https://hotel-booking-backend-ngja.onrender.com")
       .then((response)=>{ 
         console.log(response.data);
         localStorage.setItem("data", JSON.stringify(response.data));

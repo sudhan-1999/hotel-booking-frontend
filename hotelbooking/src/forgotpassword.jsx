@@ -15,7 +15,8 @@ function Forgotpassword() {
     event.preventDefault();
     try {
       console.log(email,Password)
-      const response = await axios.post("http://localhost:8000/forgotpassword", { email,Password });
+      //const response =
+       await axios.post("https://hotel-booking-backend-ngja.onrender.com/forgotpassword", { email,Password });
         navigate("/login");
       
       

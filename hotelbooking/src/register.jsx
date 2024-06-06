@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-//import register from './mongo';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -22,9 +19,9 @@ function Register() {
     setPassword(event.target.value);
   };
   async function click(event) {
-    event.preventDefault(); // Prevents default form submission behavior
+    event.preventDefault(); 
     await axios
-      .post("http://localhost:8000/register", { Name, Email, Password })
+      .post("https://hotel-booking-backend-ngja.onrender.com/register", { Name, Email, Password })
       .then((res) => {
         console.log(res);
         setName(null);
