@@ -11,7 +11,7 @@ import Forgotpassword from './forgotpassword';
 
 function App() {
  // let location = useLocation();
-    useEffect(() => {
+    /*useEffect(() => {
     async function hotel() {
       try{
       await axios.get("https://hotel-booking-backend-ngja.onrender.com")
@@ -24,7 +24,7 @@ function App() {
       }
     }
     hotel();
-  }, []);//location
+  }, []);*///location
 
   return (
     <>
