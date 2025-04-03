@@ -29,7 +29,7 @@ function Login() {
         setPassword("");
         setLogin(true);
         localStorage.setItem("user_data", JSON.stringify(response.data.user));
-        navigate("/home");
+        navigate("/");
       } else {
         setLogin(false);
       }

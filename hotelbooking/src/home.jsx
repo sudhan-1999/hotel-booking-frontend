@@ -21,6 +21,7 @@ function Home() {
   const [initialData, setInitialData] = useState([]);
   const [selectedHotels, setSelectedHotels] = useState([]);
   const [showComparison, setShowComparison] = useState(false);
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
     // Load initial data from localStorage
@@ -29,7 +30,6 @@ function Home() {
     if (parsedData) {
       setInitialData(parsedData);
     }
-
     async function searchHotels() {
       try {
         console.log(`Searching for hotels with search term: ${search}`);
@@ -39,17 +39,27 @@ function Home() {
         console.error('Error fetching hotels:', err);
       }
     }
-
     if (searchTriggered) {
       searchHotels();
       setSearchTriggered(false);
     }
   }, [searchTriggered, search]);
-
+/* */
   const handleSearch = () => {
     setSearchTriggered(true);
   };
-
+ //check for uesr loged in
+ useEffect(() => {
+ const userData = localStorage.getItem("user_data");
+ if (userData) {
+   setLogin(!login);
+ }
+},[]);
+ //logout
+ const loggingout = () => {
+   localStorage.removeItem("user_data");
+   setLogin(!login);
+ }
   const handleSelectHotel = (hotel) => {
     setSelectedHotels((prevSelected) => {
       if (prevSelected.some(h => h._id === hotel._id)) {
@@ -77,8 +87,8 @@ function Home() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/home" style={{color:"white"}}>Home</Nav.Link>
-                <Nav.Link href="/login" style={{color:"white"}}>logout</Nav.Link>
+                <Nav.Link href="/" style={{color:"white"}}>Home</Nav.Link>
+                {login ? <Nav.Link href="/" style={{color:"white"}} onClick={loggingout}>logout</Nav.Link> : <Nav.Link href="/login" style={{color:"white"}} >login</Nav.Link>}
               </Nav>
             </Navbar.Collapse>
             <Form inline>

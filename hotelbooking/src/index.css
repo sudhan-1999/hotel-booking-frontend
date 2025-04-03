@@ -33,3 +33,145 @@
     justify-content: center;
     font-size: 30px;
 }
+
+
+
+/* Booking Container */
+.book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80vh; /* Ensures the section takes 80% of the viewport height */
+  }
+  
+  /* Card */
+  .book .card {
+    display: flex;
+    flex-direction: row; /* Image on the left, content on the right */
+    width: 100%;
+    min-height: 80vh; /* Ensures card takes 80% of viewport height */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-color: white;
+    overflow: hidden;
+  }
+  .book .card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Image (Left Side) */
+  .card-img-container {
+    width: 40%;
+    height: 100%;
+  }
+  .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  /* Description (Right Side) */
+  .card-body {
+    width: 60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Amenities Section (Below Description) */
+  .amenities {
+    margin-top: 20px; /* Space between description and amenities */
+  }
+  .amenities h4 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .amenities ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .amenities ul li {
+    font-size: 0.9rem;
+    background: #007bff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  
+  /* Booking Section */
+  .book1 {
+    width: 80%;
+    margin: 20px auto;
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .book1 div {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  .book1 input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Reserve Button */
+  .check {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .check .btn {
+    background-color: #007bff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  .check .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Error Message */
+  .error-message {
+    text-align: center;
+    color: red;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
