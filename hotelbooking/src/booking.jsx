@@ -18,24 +18,34 @@ function Booking() {
   const [checkin, setCheckin] = useState(null);
   const [checkout, setCheckout] = useState(null);
   const [book, setBook] = useState(false);
+  const[login,setLogin]=useState(false)
 
   async function check() {
-
-    try {
-      const response = await axios.post(
-        `https://hotel-booking-backend-ngja.onrender.com/bookings/room/${_id}`,
-        {
-          checkin,
-          checkout,
-        }
-      );
-      navigate(`/booked`);
-    } catch (err) {
-      console.log(err.message);
-      if (err.message == "Request failed with status code 400") {
-        setBook(true);
-      }
+    const user = localStorage.getItem("user_data");
+    if(user){
+      setLogin(!login)
     }
+
+    if(login){
+      try {
+        const response = await axios.post(
+          `https://hotel-booking-backend-ngja.onrender.com/bookings/room/${_id}`,
+          {
+            checkin,
+            checkout,
+          }
+        );
+        navigate(`/booked`);
+      } catch (err) {
+        console.log(err.message);
+        if (err.message == "Request failed with status code 400") {
+          setBook(true);
+        }
+      }
+    }else{
+      alert("Login to Reserve a room!")
+    }
+    
   }
 
   if (!hotel) {

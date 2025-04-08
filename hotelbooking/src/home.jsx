@@ -59,6 +59,7 @@ function Home() {
  const loggingout = () => {
    localStorage.removeItem("user_data");
    setLogin(!login);
+   navigate("/");
  }
   const handleSelectHotel = (hotel) => {
     setSelectedHotels((prevSelected) => {
@@ -83,12 +84,12 @@ function Home() {
       <div className="nav" > 
         <Navbar bg="primary" expand="lg"  style={{ height: "auto", width: "100%" }}>
           <Container>
-            <Navbar.Brand href="/home" style={{color:"white"}}>Hotel Booking</Navbar.Brand>
+            <Navbar.Brand href="/" style={{color:"white"}}>Hotel Booking</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link href="/" style={{color:"white"}}>Home</Nav.Link>
-                {login ? <Nav.Link href="/" style={{color:"white"}} onClick={loggingout}>logout</Nav.Link> : <Nav.Link href="/login" style={{color:"white"}} >login</Nav.Link>}
+                {login ? <Nav.Link  style={{color:"white"}} onClick={loggingout}>logout</Nav.Link> : <Nav.Link href="/login" style={{color:"white"}} >login</Nav.Link>}
               </Nav>
             </Navbar.Collapse>
             <Form inline>

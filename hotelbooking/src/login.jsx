@@ -48,6 +48,7 @@ function Login() {
           placeholder="Enter email"
           value={Email}
           onChange={handleEmailChange}
+          autoComplete="username"
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
@@ -57,6 +58,7 @@ function Login() {
           placeholder="Password"
           value={Password}
           onChange={handlePasswordChange}
+          autoComplete="current-password"
         />
       </Form.Group>
      
@@ -70,7 +72,7 @@ function Login() {
       <p>
         Don't have an account?
         <a
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/register")}
           style={{ color: "blue", cursor: "pointer" }}
         >
           Click Here!

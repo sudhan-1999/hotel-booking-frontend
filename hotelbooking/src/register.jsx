@@ -21,17 +21,30 @@ function Register() {
     setPassword(event.target.value);
   };
   async function click(event) {
-    event.preventDefault(); 
-    await axios
-      .post("https://hotel-booking-backend-ngja.onrender.com/register", { Name, Email, Password })
-      .then((res) => {
-        console.log(res);
-        setName(null);
-        setEmail(null);
-        setPassword(null);
-        navigate("/login");
+    event.preventDefault();
+    try { 
+      const res = await axios.post("https://hotel-booking-backend-ngja.onrender.com/register", {
+        Name,
+        Email,
+        Password,
       });
+  
+      console.log(res.data);
+      setName("");
+      setEmail("");
+      setPassword("");
+      navigate("/login");
+  
+    } catch (error) {
+      if (error.response && error.response.status === 409) {
+        alert("User already exists. Please log in.");
+      } else {
+        alert("Registration failed. Please try again later.");
+      }
+      console.error("Axios error:", error); // full log for debugging
+    }
   }
+  
   return (
     <div className="registerpage">
       <form action="/action_page.php" class="was-validated">
